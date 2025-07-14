@@ -10,7 +10,7 @@ GITHUB_URL="git@github.com:ChubbyPenguin69/wifi-model.git"
 read -sp "Enter new Wi-Fi password: " PASSWORD
 echo
 
-# Clone the repo fresh every time (optional clean setup)
+# Clone the repo fresh every time 
 rm -rf "$REPO_PATH"
 git clone "$GITHUB_URL" "$REPO_PATH"
 cd "$REPO_PATH" || exit 1
@@ -21,7 +21,7 @@ sed -i "s/Password:.*/Password: $PASSWORD/" index.html
 # Generate new QR code
 qrencode -o wifi-qr.png "WIFI:T:WPA;S:$SSID;P:$PASSWORD;;"
 
-# Commit and push
+# Commit 
 git config user.name "ChubbyPenguin69"
 git config user.email "patbat690@proton.me"
 git add index.html wifi-qr.png
